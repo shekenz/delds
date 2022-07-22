@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Created by Shekenz https://github.com/shekenz
+
 # If argument is empty, use current work dir
 if [ -z "$1" ]; then
 	echo -e "\033[33mNo directory found, using current working directory as default ($(pwd))\033[0m"
