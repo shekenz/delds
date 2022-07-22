@@ -13,7 +13,13 @@ if [ -d $dir -a -w $dir ]; then
 	
 	# Finds all .DS_Store in directory
 	# Files is an array
-	files=($(find $1 -name '.DS_Store'))
+	# Use of f flag to split array at line endings instead of space (For file name with space)
+	# More info at https://unix.stackexchange.com/questions/29724/how-to-properly-collect-an-array-of-lines-in-zsh
+	files=("${(@f)$(find $dir -name '.DS_Store')}")
+
+	if [ -z "${files[@]:0:1}" ]; then
+		files=()
+	fi
 	
 	# For each files, print out name and hoghlight .DS_Store with grep
 	# This simulate a regular find + grep
