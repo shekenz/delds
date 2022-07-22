@@ -33,7 +33,7 @@ if [ -d $dir -a -w $dir ]; then
 	done
 	
 	# Choose a highlight color depending if files are found
-	if (( ${#files[@]} == 0 ));then
+	if (( ${#files[@]} == 0 )); then
 		color="\033[31m"
 	else
 		color="\033[1;32m"
