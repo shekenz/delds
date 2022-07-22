@@ -18,7 +18,7 @@ if [ -d $dir -a -w $dir ]; then
 	# For each files, print out name and hoghlight .DS_Store with grep
 	# This simulate a regular find + grep
 	for i in ${files[@]}; do
-		echo $i | grep ".DS_Store"
+		echo ${i:a} | grep ".DS_Store"
 	done
 	
 	# Choose a highlight color depending if files are found
