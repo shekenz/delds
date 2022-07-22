@@ -1,7 +1,15 @@
 #!/usr/bin/env zsh
 
-# If argument is not null, is a directory and user has writing permissin
-if [ -n "$1" -a -d $1 -a -w $1 ]; then
+# If argument is empty, use current work dir
+if [ -z "$1" ]; then
+	echo -e "\033[33mNo directory found, using current working directory as default ($(pwd))\033[0m"
+	dir=$(pwd)
+else
+	dir=$1
+fi
+
+# If argument is a directory and user has writing permissions
+if [ -d $dir -a -w $dir ]; then
 	
 	# Finds all .DS_Store in directory
 	# Files is an array
