@@ -21,7 +21,7 @@ if [ -d $dir -a -w $dir ]; then
 
 	# Fix for when 0 files are found, array is not empty
 	# Probably because it splits files at line endings and the find commands returns a line ending when nothing is found
-  # If first array element is null, just redeclare $files as a new empty array
+	# If first array element is null, just redeclare $files as a new empty array
 	if [ -z "${files[@]:0:1}" ]; then
 		files=()
 	fi
